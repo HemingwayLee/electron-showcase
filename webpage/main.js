@@ -1,16 +1,14 @@
 const {app, BrowserWindow} = require('electron')
-// const path = require('path')
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    // webPreferences: {
-    //   preload: path.join(__dirname, 'preload.js')
-    // }
+    "minWidth": 800,
+    "minHeight": 600
   })
 
-  mainWindow.loadFile('index.html')
+  mainWindow.loadURL('http://www.google.com.tw')
 }
 
 app.whenReady().then(() => {
