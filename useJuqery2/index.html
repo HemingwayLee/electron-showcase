@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- add 'unsafe-eval' to CSP, even official quick start example has this issue -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'">
+    
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+      window.$ = window.jQuery = require('jquery');
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Hello bootstrap and jquery</title>
+    
+  </head>
+  <body>
+    <h1 id="myhead">Hello bootstrap and jquery</h1>
+    <button class = "btn btn-success">Click Button</button>
+    <script>
+      $("#myhead").html("Hello, JQUERY!!");
+    </script>
+  </body>
+</html>
+
+
