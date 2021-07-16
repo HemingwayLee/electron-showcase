@@ -1,0 +1,1 @@
+$("#myhead").html("Hello, JQUERY!!");
