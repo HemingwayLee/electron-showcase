@@ -1,6 +1,8 @@
 
 const fs = require('fs')
-const filename = 'contacts.csv'
+const app = require('electron')
+const path = require('path')
+
 let idx = 0
 
 function addEntry(name, email) {
@@ -12,7 +14,10 @@ function addEntry(name, email) {
   }
 }
 
-function loadAndDisplayContacts() {  
+function loadAndDisplayContacts() { 
+  // enableRemoteModule need to be `true` in `main.js`
+  const filename = path.join(app.remote.app.getAppPath(), 'contacts.csv')
+
   console.log(`load ${filename}`)
 
   if (fs.existsSync(filename)) {

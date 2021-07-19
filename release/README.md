@@ -3,11 +3,13 @@
 
 * we can use `mainWindow.webContents.openDevTools()` to see error logs
 
-* we need `nodeIntegration` and `contextIsolation` to use `require` in `workaround.js`
+* we need `nodeIntegration` and `contextIsolation` to use `require` in `myjs.js`
+* enableRemoteModule need to be `true` in `main.js`
 ```javascript
 webPreferences: {
   nodeIntegration: true,
   contextIsolation: false,
+  enableRemoteModule: true,
 }
 ```
 
@@ -28,6 +30,8 @@ electron-packager <sourcedir> <appname> --platform=<platform> --arch=<arch> [opt
 ```
 electron-packager . myrelease --platform=mas --arch=x64
 ```
+
+* `contacts.csv` need to move to released folder manually
 
 * [options](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html)
 
