@@ -31,4 +31,6 @@ electron-packager . myrelease --platform=mas --arch=x64
 
 * [options](https://electron.github.io/electron-packager/main/interfaces/electronpackager.options.html)
 
+# Note
+* this does not work for electron app which uses `python-shell`
 
