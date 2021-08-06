@@ -11,6 +11,8 @@ webPreferences: {
 }
 ```
 
+* we need extra 3rd package to get login username and mac address
+
 # How
 
 ```
