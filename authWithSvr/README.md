@@ -15,7 +15,7 @@ webPreferences: {
 }
 ```
 
-* we need to setup another django server for testing
+* we need to setup another django server `csrfTests` for testing
 
 # How
 
