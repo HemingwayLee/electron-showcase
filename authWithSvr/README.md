@@ -1,6 +1,3 @@
-# TODO: 
-* fix csrf issue
-
 # What 
 * we need to add `'unsafe-eval'` and `'unsafe-inline'` to CSP in `index.html`, even official quick start example has this issue
 
@@ -15,9 +12,9 @@ webPreferences: {
 }
 ```
 
-* we need to setup another django server `csrfTests` for testing
 
 # How
+* we need to setup another django server `django-cheatsheet/auth/csrfTests` for testing
 
 ```
 npm install
