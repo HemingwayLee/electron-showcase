@@ -38,6 +38,10 @@ package.json
 ```
 
 ## Release 
+### electron-builder vs electron-packager
+* `electron-builder` has more supports from community
+* `electron-builder` uses `electron-packager` internally
+
 ```
 electron-packager <sourcedir> <appname> --platform=<platform> --arch=<arch> [optional flags...]
 ```
