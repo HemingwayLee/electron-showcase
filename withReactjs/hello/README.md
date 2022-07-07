@@ -19,3 +19,7 @@ npm run build
 open dist/
 ```
 
+# What
+* `electron-is-dev` library is used to connect to 127.0.0.1:3000 when developing
+* `electron-builder` and `electron` should be in `--save-dev`
+
