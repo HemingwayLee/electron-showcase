@@ -19,3 +19,14 @@ npm run build
 open dist/
 ```
 
+# What
+* we create `start`, `react-build`, `electron`, ... so we can develop/test them seperately
+```
+"start": "react-scripts start",
+"react-build": "react-scripts build",
+"build": "npm:react-build && electron-builder",
+"dev": "concurrently -k \"BROWSER=none npm start\" \"npm:electron\"",
+"electron": "wait-on http://127.0.0.1:3000 && electron ."
+```
+
+
