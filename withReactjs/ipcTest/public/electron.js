@@ -1,6 +1,8 @@
+const axios = require('axios')
 const {app, BrowserWindow, ipcMain} = require('electron')
 const isDev = require('electron-is-dev')
 const path = require('path')
+
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
@@ -36,6 +38,15 @@ app.on('window-all-closed', function () {
 ipcMain.on('async-streaming-func', (event, arg) => {
   console.log("!!!");
   console.log(arg);
+
+  axios.get('https://imaple.co/play/6276-5-1.html')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
   event.sender.send('async-streaming-callback', 'async pong')
 })
 
