@@ -2,7 +2,8 @@ const axios = require('axios')
 const {app, BrowserWindow, ipcMain} = require('electron')
 const isDev = require('electron-is-dev')
 const path = require('path')
-
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
@@ -36,18 +37,28 @@ app.on('window-all-closed', function () {
 })
 
 ipcMain.on('async-streaming-func', (event, arg) => {
-  console.log("!!!");
-  console.log(arg);
-
-  axios.get('https://imaple.co/play/6276-5-1.html')
+  let result = ''
+  
+  axios.get(arg)
     .then(function (response) {
-      console.log(response);
+      const dom = new JSDOM(response.data);
+
+      const scriptTag = dom.window.document.querySelectorAll("script");
+      console.log(scriptTag.length)
+      var scriptArray = [...scriptTag]; // converts NodeList to Array
+      scriptArray.forEach((ele, idx) => {
+        if (ele.textContent.includes('m3u8')) {
+          const code = new Function(ele.textContent + "; return player_aaaa;");
+          result = code()["url"]
+        }
+      });
     })
     .catch(function (error) {
       console.log(error);
+    })
+    .then(function () {
+      event.sender.send('async-streaming-callback', result)
     });
-
-  event.sender.send('async-streaming-callback', 'async pong')
 })
 
 

@@ -82,7 +82,7 @@ class Dashboard extends React.Component {
               });
             }}>Try Me</Button> */}
             <Button onClick={(e)=>{
-              ipcRenderer.send('async-streaming-func', 'async ping from render');
+              ipcRenderer.send('async-streaming-func', 'https://imaple.co/play/6276-5-1.html');
             }}>IPC with Me</Button>
             <List component="nav">
               {mainListItems}
