@@ -7,8 +7,8 @@ const { JSDOM } = jsdom;
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1080,
+    height: 720,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
@@ -60,5 +60,3 @@ ipcMain.on('async-streaming-func', (event, arg) => {
       event.sender.send('async-streaming-callback', result)
     });
 })
-
-
